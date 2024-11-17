@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BurgeBuilder/static/css/main.9e3427d2.css",
+    "main.js": "/BurgeBuilder/static/js/main.97adc8d7.js",
+    "index.html": "/BurgeBuilder/index.html",
+    "main.9e3427d2.css.map": "/BurgeBuilder/static/css/main.9e3427d2.css.map",
+    "main.97adc8d7.js.map": "/BurgeBuilder/static/js/main.97adc8d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e3427d2.css",
+    "static/js/main.97adc8d7.js"
+  ]
+}
