@@ -21,7 +21,7 @@ const Modal = React.memo( props => {
 },
     (prevProps, nextProps) => {
         console.log(prevProps, nextProps);
-        return prevProps["show"] === nextProps["show"]
+        return prevProps.show === nextProps.show && prevProps.children === nextProps.children
     }
 );
 

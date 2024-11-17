@@ -1,4 +1,5 @@
 import Auxs from "../../hoc/Auxs";
+import Button from "../UI/Button/Button";
 
 const OrderSummary = props => {
     console.log("order summary");
@@ -16,6 +17,13 @@ const OrderSummary = props => {
                 {ingredientsSummary}
             </ul>
             <p>Total price : <strong>{props.price}</strong></p>
+            <div style={{
+                display : 'flex',
+                justifyContent : 'space-between'
+            }}>
+            <Button type="Danger" clicked={props.cancel}>Cancel</Button>
+            <Button type="Success" clicked={props.continue}>Continue</Button>
+            </div>
         </Auxs>;
 };
 

@@ -1,9 +1,11 @@
 import Auxs from "../../hoc/Auxs";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/BuildControls/BuildControls";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
+import axios from "../../axios-orders";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 
 const INGREDIENTS_PRICES = {
@@ -24,6 +26,20 @@ const BurgerBuilder = props => {
     const [price, setPrice] = useState(Object.keys(ingredients).reduce((sum,type)=>sum+ingredients[type]*INGREDIENTS_PRICES[type],0));
     const [purchasable, setPurchasable] = useState(false);
     const [purchasing, setPurchasing] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+        axios.get('/order/-OBw3_pA_Pmffi_NOPxk.json')
+            .then(response => {
+                console.log(response)
+                setIngredients({...response.data.ingredients}); 
+                setPrice(response.data.price);
+                setPurchasable(true);
+            })
+            .catch(error => {
+                console.error('Error fetching ingredients:', error);
+            });
+    },[]);
 
     const addIngredients = (type) =>{
             
@@ -55,6 +71,34 @@ const BurgerBuilder = props => {
     const purchaseCancelHandler = () => {
         setPurchasing(false);
     }
+
+    const purchaseContinueHandler = () => {
+        console.log("You Continue");
+        setLoading(true);
+        const order = {
+            ingredients : ingredients,
+            price : price,
+            customer : {
+                name  : 'Gaurav Sharma',
+                email : 'gauravsharma9339@gmail.com',
+                address : {
+                    street : 'Krishna Vihar',
+                    country : 'India'
+                }
+            }
+        }
+        axios.post('/order.json',order)
+            .then(response => {
+                setLoading(false);
+                setPurchasing(false);
+                console.log(response);
+            })
+            .catch(error => {
+                setLoading(false);
+                setPurchasing(false);
+                console.log(error);
+            });
+    }
     
 
     
@@ -64,9 +108,18 @@ const BurgerBuilder = props => {
         return acc;
     },{});
 
+    let orderSummary = <OrderSummary 
+                                price={price} 
+                                ingredients={ingredients} 
+                                cancel={purchaseCancelHandler} 
+                                continue={purchaseContinueHandler}/>;
+    if(loading){
+        orderSummary = <Spinner/>
+    }
+
     return <Auxs>
                 <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
-                    <OrderSummary price={price} ingredients={ingredients}/>
+                    {orderSummary}
                 </Modal>
                 <Burger ingredients={ingredients}/>
                 <BuildControls 
