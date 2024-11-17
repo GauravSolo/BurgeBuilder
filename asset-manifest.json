@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/BurgeBuilder/static/css/main.9e3427d2.css",
-    "main.js": "/BurgeBuilder/static/js/main.97adc8d7.js",
+    "main.css": "/BurgeBuilder/static/css/main.445d5d53.css",
+    "main.js": "/BurgeBuilder/static/js/main.c1aec0b4.js",
     "index.html": "/BurgeBuilder/index.html",
-    "main.9e3427d2.css.map": "/BurgeBuilder/static/css/main.9e3427d2.css.map",
-    "main.97adc8d7.js.map": "/BurgeBuilder/static/js/main.97adc8d7.js.map"
+    "main.445d5d53.css.map": "/BurgeBuilder/static/css/main.445d5d53.css.map",
+    "main.c1aec0b4.js.map": "/BurgeBuilder/static/js/main.c1aec0b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e3427d2.css",
-    "static/js/main.97adc8d7.js"
+    "static/css/main.445d5d53.css",
+    "static/js/main.c1aec0b4.js"
   ]
 }
