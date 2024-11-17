@@ -1,7 +1,7 @@
 import Auxs from "../../hoc/Auxs";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/BuildControls/BuildControls";
-import React,{ useState } from "react";
+import { useState } from "react";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
 

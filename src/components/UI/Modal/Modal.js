@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Auxs from '../../../hoc/Auxs';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.module.css';
@@ -22,7 +21,7 @@ const Modal = React.memo( props => {
 },
     (prevProps, nextProps) => {
         console.log(prevProps, nextProps);
-        return prevProps != nextProps
+        return prevProps["show"] === nextProps["show"]
     }
 );
 
