@@ -2,7 +2,7 @@ import classes from './Spinner.module.css';
 
 const Spinner = () =>
 (
-    <span className={classes.Spinner}></span>
+    <div className={classes.Spinner}></div>
 );
 
 export default Spinner;
